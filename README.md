@@ -1,3 +1,3 @@
-Phil
-Marie
-John
+- Phil
+- Marie
+- John
