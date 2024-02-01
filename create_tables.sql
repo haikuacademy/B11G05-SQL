@@ -9,7 +9,6 @@ CREATE TABLE users (
 
 CREATE TABLE houses(
     house_id SERIAL PRIMARY KEY NOT NULL,
-    house_photo VARCHAR(255) REFERENCES house_photos(house_photo) NOT NULL,
     house_location VARCHAR(50) NOT NULL,
     house_rooms INT NOT NULL,
     house_bathrooms INT NOT NULL,
