@@ -15,3 +15,18 @@ SELECT *
 FROM users 
 WHERE users.email = 'vincent.frazier@example.com' AND users.password = 'africa'
 
+--READ USER
+--Show user date based on the user_id (3)
+
+SELECT users.profile_photo, users.first_name, users.last_name, users.email, users.password FROM users WHERE users.user_id = 3
+
+-- UPDATE PROFILE
+-- Placeholders update all of user 1's information to Samantha Pearson
+
+UPDATE users 
+SET 
+profile_photo = 'https://randomuser.me/api/portraits/women/32.jpg',  
+first_name='Samantha', 
+last_name='Pearson', 
+email='samantha.pearson@example.com'
+WHERE users.user_id =1;
