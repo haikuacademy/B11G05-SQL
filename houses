@@ -22,7 +22,7 @@ VALUES (
     18,
     4.5)
     ;
-cgdcgd
+
 -- READ
 
 SELECT photo_link, house_location, house_rooms, house_bathrooms, price, date_start, date_end, message, total_nights, price_total, reviews_count, reviews.rating, reviews.comment
