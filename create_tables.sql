@@ -1,3 +1,4 @@
+@ -0,0 +1,48 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     profile_photo VARCHAR(255),
