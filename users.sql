@@ -11,14 +11,14 @@ VALUES
  
 --LOGIN USER
 
-SELECT * 
+SELECT users.email, users.password
 FROM users 
 WHERE users.email = 'vincent.frazier@example.com' AND users.password = 'africa'
 
 --READ USER
 --Show user date based on the user_id (3)
 
-SELECT users.profile_photo, users.first_name, users.last_name, users.email, users.password FROM users WHERE users.user_id = 3
+SELECT * FROM users WHERE users.user_id = 3
 
 -- UPDATE PROFILE
 -- Placeholders update all of user 1's information to Samantha Pearson
