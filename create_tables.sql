@@ -1,4 +1,3 @@
-@ -0,0 +1,48 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     profile_photo VARCHAR(255),
@@ -34,8 +33,8 @@ CREATE TABLE bookings (
     guest_id INT REFERENCES users(user_id) NOT NULL,
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
-    total_nights INT
-    price_daily INT
+    total_nights INT,
+    price_daily INT REFERENCES houses(price),
     price_total INT NOT NULL,
     message TEXT NOT NULL
 );
