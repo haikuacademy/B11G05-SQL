@@ -1,4 +1,4 @@
--- CREATE
+-- CREATE HOUSE
 
 INSERT INTO houses (
     house_id,
@@ -23,7 +23,7 @@ VALUES (
     4.5)
     ;
 
--- READ
+-- READ HOUSE
 
 SELECT photo_link, house_location, house_rooms, house_bathrooms, price, date_start, date_end, message, total_nights, price_total, reviews_count, reviews.rating, reviews.comment
 FROM houses
@@ -38,7 +38,7 @@ ON
 houses.house_id = bookings.house_id
 ;
 
--- UPDATE
+-- UPDATE HOUSE
 
 UPDATE houses
 SET
@@ -50,7 +50,12 @@ description = 'Forget your troubles in paradise! Close to many activities includ
 WHERE house_id = 34
 ;
 
--- DELETE
+-- DELETE HOUSE
+
+DELETE FROM houses
+WHERE
+house_id = 21
+;
 
 
 
