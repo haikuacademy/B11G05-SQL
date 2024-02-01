@@ -16,3 +16,18 @@ VALUES
 (3, 3, 5.0, 'Excellent service', '2024-01-26'),
 (4, 3, 2.0, 'Needs improvement', '2024-01-28'),
 (1, 3, 3.5, 'Average', '2024-01-30')
+
+-- READ REVIEWS 
+-- Of house_id 3
+
+SELECT 	
+	reviews.rating,
+	reviews.comment,
+	reviews.date,
+	users.first_name,
+	users.last_name, 
+	users.profile_photo
+	FROM reviews 
+	LEFT JOIN users
+	ON users.user_id = reviews.user_id
+	WHERE reviews.house_id = 3
