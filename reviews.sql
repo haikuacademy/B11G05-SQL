@@ -8,7 +8,7 @@ CREATE TABLE reviews (
 );
 
 
---Reviews placeholders
+--Reviews placeholders / Create user
 
 INSERT INTO reviews ( user_id, house_id, rating, comment, date )
 VALUES 
