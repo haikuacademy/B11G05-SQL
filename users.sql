@@ -1,3 +1,5 @@
+--Create user
+
 INSERT INTO 
 users (profile_photo, first_name, last_name, email, password)
 
