@@ -1,4 +1,4 @@
---Create user
+--Insert user placeholders
 
 INSERT INTO 
 users (profile_photo, first_name, last_name, email, password)
@@ -29,4 +29,4 @@ profile_photo = 'https://randomuser.me/api/portraits/women/32.jpg',
 first_name='Samantha', 
 last_name='Pearson', 
 email='samantha.pearson@example.com'
-WHERE users.user_id =1;
+WHERE users.user_id = 1;
