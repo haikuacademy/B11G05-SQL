@@ -9,15 +9,15 @@ CREATE TABLE users (
 
 CREATE TABLE houses(
     house_id SERIAL PRIMARY KEY,
-    house_photo VARCHAR(255) REFERENCES house_photos(house_photo) NOT NULL,
+    house_photo VARCHAR(255) REFERENCES house_photos(photo_id) NOT NULL,
     house_location VARCHAR(50) NOT NULL,
     house_rooms INT NOT NULL,
     house_bathrooms INT NOT NULL,
     description TEXT NOT NULL,
-    user_id VARCHAR(50) REFERENCES users(user_id) NOT NULL,
+    user_id INT REFERENCES users(user_id) NOT NULL,
     price INT NOT NULL,
     reviews_count INT NOT NULL,
-    ratings FLOAT REFERENCES houses(rating) NOT NULL
+    ratings FLOAT NOT NULL
 );
 
 CREATE TABLE house_photos (
@@ -33,8 +33,8 @@ CREATE TABLE bookings (
     guest_id INT REFERENCES users(user_id) NOT NULL,
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
-    total_nights INT
-    price_daily INT 
+    total_nights INT,
+    price INT REFERENCES houses(price) NOT NULL, 
     price_total INT NOT NULL,
     message TEXT NOT NULL
 );
