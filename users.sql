@@ -9,3 +9,9 @@ VALUES
 ('https://randomuser.me/api/portraits/men/89.jpg', 'Edwin', 'Stewart', 'edwin.stewart@example.com', 'elephant'), 
 ('https://randomuser.me/api/portraits/women/31.jpg', 'Monica', 'Gonzalez', 'monica.gonzalez@example.com', 'donna')  
  
+--LOGIN USER
+
+SELECT * 
+FROM users 
+WHERE users.email = 'vincent.frazier@example.com' AND users.password = 'africa'
+
