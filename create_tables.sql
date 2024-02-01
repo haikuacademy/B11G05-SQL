@@ -33,8 +33,8 @@ CREATE TABLE bookings (
     guest_id INT REFERENCES users(user_id) NOT NULL,
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
-    total_nights INT,
-    price_daily INT REFERENCES houses(price),
+    total_nights INT
+    price_daily INT 
     price_total INT NOT NULL,
     message TEXT NOT NULL
 );
