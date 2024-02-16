@@ -1,48 +1,53 @@
-CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
-    profile_photo VARCHAR(255),
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(25) NOT NULL
+-- Query to create the 'users' table
+
+CREATE TABLE users(
+	user_id serial PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50),
+	profile_pic VARCHAR(255),
+	email VARCHAR(50) NOT NULL,
+	password VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE houses(
-    house_id SERIAL PRIMARY KEY,
-    house_photo VARCHAR(255) REFERENCES house_photos(photo_id) NOT NULL,
-    house_location VARCHAR(50) NOT NULL,
-    house_rooms INT NOT NULL,
-    house_bathrooms INT NOT NULL,
-    description TEXT NOT NULL,
-    user_id INT REFERENCES users(user_id) NOT NULL,
-    price INT NOT NULL,
-    reviews_count INT NOT NULL,
-    ratings FLOAT NOT NULL
+-- Query to create the 'houses' table
+
+CREATE TABLE houses (
+	house_id SERIAL PRIMARY KEY,
+	location VARCHAR(100) NOT NULL,
+	bedrooms INT NOT NULL,
+	bathrooms  INT NOT NULL,
+	price_per_night INT  NOT NULL,
+	description TEXT,
+	host_id INT REFERENCES users(user_id)
 );
 
-CREATE TABLE house_photos (
-    photo_id SERIAL PRIMARY KEY,
-    featured BOOLEAN NOT NULL,
-    photo_link VARCHAR(255) NOT NULL,
-    house_id INT REFERENCES houses(house_id) NOT NULL
+-- Query to create 'house_pics' table
+
+CREATE TABLE house_pics(
+	house_pics_id serial PRIMARY KEY,
+	house_id INT REFERENCES houses(house_id) NOT NULL,
+	url VARCHAR(255) NOT NULL
 );
+
+-- Query to create the 'bookings' table
 
 CREATE TABLE bookings (
-    booking_id SERIAL PRIMARY KEY,
-    house_id INT REFERENCES houses(house_id) NOT NULL,
-    guest_id INT REFERENCES users(user_id) NOT NULL,
-    date_start DATE NOT NULL,
-    date_end DATE NOT NULL,
-    total_nights INT,
-    price INT REFERENCES houses(price) NOT NULL, 
-    price_total INT NOT NULL,
-    message TEXT NOT NULL
+	booking_id SERIAL PRIMARY KEY,
+	guest_id INT REFERENCES users(user_id) NOT NULL,
+	house_id INT REFERENCES houses(house_id) NOT NULL,
+	check_in_date DATE NOT NULL,
+	check_out_date DATE NOT NULL,
+	total_price INT NOT NULL
 );
+
+
+-- Query to create the 'reviews' table
+
 CREATE TABLE reviews (
-    review_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(user_id) NOT NULL,
-    house_id INT REFERENCES houses(house_id) NOT NULL,
-    rating FLOAT NOT NULL,
-    comment TEXT NOT NULL,
-    date DATE NOT NULL
+	review_id SERIAL PRIMARY KEY,
+	house_id INT REFERENCES houses(house_id) NOT NULL,
+	reviewer_id INT REFERENCES users(user_id) NOT NULL,
+	review_date TIMESTAMP NOT NULL,
+	rating INT NOT NULL,
+	review_text TEXT
 );
